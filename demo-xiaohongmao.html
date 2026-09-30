@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小红帽示例 · 本地预览</title>
+<style>
+body { font-family: Georgia, "Songti SC", "SimSun", serif; max-width: 900px; margin: 0 auto; padding: 2em 1.2em; color: #222; background: #fff; }
+#workskin .game .page {
+  display: none;
+}
+
+#workskin .game .page-start {
+  display: block;
+}
+
+#workskin .game:has(.anchor:target) .page-start {
+  display: none;
+}
+
+#workskin .game .page:has(.anchor:target) {
+  display: block;
+}
+
+#workskin .game:has(a[name="p1"]:target) .page-start {
+  display: block;
+}
+
+#workskin .warning {
+  margin: 2em auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.95em;
+}
+
+#workskin .page > p {
+  text-indent: 2em;
+  line-height: 1.8;
+  margin: 1em 0;
+}
+
+#workskin .choices {
+  max-width: 650px;
+  margin: 3em auto;
+}
+
+#workskin .choices p {
+  text-indent: 0;
+  margin: 1em 0;
+}
+
+#workskin .choices a {
+  display: block;
+  position: relative;
+  padding: 1em 1.5em 1em 3em;
+  border: 1px solid #888;
+  border-radius: 8px;
+  text-align: left;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+#workskin .choices a:before {
+  content: "›";
+  position: absolute;
+  left: 1.2em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  color: inherit;
+}
+
+#workskin .choices a:hover {
+  background: #eee;
+}
+
+#workskin .system-message {
+  margin: 3em auto;
+  text-align: center;
+  font-weight: bold;
+}
+
+#workskin .ending {
+  max-width: 700px;
+  margin: 4em auto;
+  text-align: center;
+  line-height: 1.8;
+}
+
+#workskin .ending-title {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 0.25em;
+}
+
+#workskin .ending p {
+  text-indent: 2em;
+  text-align: left;
+}
+
+#workskin .choices {
+  width: 90%;
+}
+
+#workskin .choices a {
+  padding: 1em;
+  padding-left: 2.5em;
+  font-size: 0.95em;
+}
+
+#workskin .ending {
+  width: 90%;
+}
+
+#workskin .ending-title {
+  font-size: 1.3em;
+}
+
+</style>
+</head>
+<body>
+<div id="workskin">
+<div class="game">
+  <div class="warning">
+    <p>娱乐性质游戏，请勿上纲上线！</p>
+  </div>
+
+  <div class="page page-start">
+    <p><a id="p1" name="p1" class="anchor" rel="nofollow"></a></p>
+
+    <p>小红帽提着点心篮子，走在去奶奶家的森林小路上。</p>
+
+    <p>一个笑眯眯的陌生人跟她搭话：「我也要去林子那头，一起走吗？」</p>
+
+    <div class="choices">
+      <p>
+        <a href="#endA" rel="nofollow">A. 好呀，两个人走热闹些</a>
+      </p>
+
+      <p>
+        <a href="#endB" rel="nofollow">B. 不用了，我自己走快些</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="page">
+    <p><a id="endA" name="endA" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END A</p>
+      </div>
+
+      <p>你和陌生人一起走到了奶奶家。推开门，床上坐着一个「奶奶」，被子一直拉到下巴。</p>
+
+      <p>你忽然愣住——那双眼睛、那个笑法，和路上遇到的那个人一模一样。</p>
+
+      <p>你一把掀开被子，被子下面露出一条毛茸茸的大尾巴。</p>
+
+      <p>你抓起篮子转身就跑，边跑边喊救命。猎人循声赶来，你和奶奶都活了下来。</p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="page">
+    <p><a id="endB" name="endB" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END B</p>
+      </div>
+
+      <p>你婉拒了那个人，一个人赶到了奶奶家。</p>
+
+      <p>「奶奶」躺在床上，声音有点沙哑，被子拉得很高。你没多想，坐到床边，把点心一块块递过去。</p>
+
+      <p>被子下面，慢慢伸出一只毛茸茸的爪子……</p>
+
+      <p>森林里，从此少了一个提篮子的小姑娘。</p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

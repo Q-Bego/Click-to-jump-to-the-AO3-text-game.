@@ -1,0 +1,113 @@
+#workskin .game .page {
+  display: none;
+}
+
+#workskin .game .page-start {
+  display: block;
+}
+
+#workskin .game:has(.anchor:target) .page-start {
+  display: none;
+}
+
+#workskin .game .page:has(.anchor:target) {
+  display: block;
+}
+
+#workskin .game:has(a[name="p1"]:target) .page-start {
+  display: block;
+}
+
+#workskin .warning {
+  margin: 2em auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.95em;
+}
+
+#workskin .page > p {
+  text-indent: 2em;
+  line-height: 1.8;
+  margin: 1em 0;
+}
+
+#workskin .choices {
+  max-width: 650px;
+  margin: 3em auto;
+}
+
+#workskin .choices p {
+  text-indent: 0;
+  margin: 1em 0;
+}
+
+#workskin .choices a {
+  display: block;
+  position: relative;
+  padding: 1em 1.5em 1em 3em;
+  border: 1px solid #888;
+  border-radius: 8px;
+  text-align: left;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+#workskin .choices a:before {
+  content: "›";
+  position: absolute;
+  left: 1.2em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  color: inherit;
+}
+
+#workskin .choices a:hover {
+  background: #eee;
+}
+
+#workskin .system-message {
+  margin: 3em auto;
+  text-align: center;
+  font-weight: bold;
+}
+
+#workskin .ending {
+  max-width: 700px;
+  margin: 4em auto;
+  text-align: center;
+  line-height: 1.8;
+}
+
+#workskin .ending-title {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 0.25em;
+}
+
+#workskin .ending p {
+  text-indent: 2em;
+  text-align: left;
+}
+
+#workskin .choices {
+  width: 90%;
+}
+
+#workskin .choices a {
+  padding: 1em;
+  padding-left: 2.5em;
+  font-size: 0.95em;
+}
+
+#workskin .ending {
+  width: 90%;
+}
+
+#workskin .ending-title {
+  font-size: 1.3em;
+}

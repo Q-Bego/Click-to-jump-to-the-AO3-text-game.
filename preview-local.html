@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>本地预览 - 文字游戏</title>
+<style>
+body { font-family: Georgia, "Songti SC", "SimSun", serif; max-width: 900px; margin: 0 auto; padding: 2em 1.2em; color: #222; background: #fff; }
+#workskin .game .page {
+  display: none;
+}
+
+#workskin .game .page-start {
+  display: block;
+}
+
+#workskin .game:has(.anchor:target) .page-start {
+  display: none;
+}
+
+#workskin .game .page:has(.anchor:target) {
+  display: block;
+}
+
+#workskin .game:has(a[name="p1"]:target) .page-start {
+  display: block;
+}
+
+#workskin .warning {
+  margin: 2em auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.95em;
+}
+
+#workskin .page > p {
+  text-indent: 2em;
+  line-height: 1.8;
+  margin: 1em 0;
+}
+
+#workskin .choices {
+  max-width: 650px;
+  margin: 3em auto;
+}
+
+#workskin .choices p {
+  text-indent: 0;
+  margin: 1em 0;
+}
+
+#workskin .choices a {
+  display: block;
+  position: relative;
+  padding: 1em 1.5em 1em 3em;
+  border: 1px solid #888;
+  border-radius: 8px;
+  text-align: left;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+#workskin .choices a:before {
+  content: "›";
+  position: absolute;
+  left: 1.2em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  color: inherit;
+}
+
+#workskin .choices a:hover {
+  background: #eee;
+}
+
+#workskin .system-message {
+  margin: 3em auto;
+  text-align: center;
+  font-weight: bold;
+}
+
+#workskin .ending {
+  max-width: 700px;
+  margin: 4em auto;
+  text-align: center;
+  line-height: 1.8;
+}
+
+#workskin .ending-title {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 0.25em;
+}
+
+#workskin .ending p {
+  text-indent: 2em;
+  text-align: left;
+}
+
+#workskin .choices {
+  width: 90%;
+}
+
+#workskin .choices a {
+  padding: 1em;
+  padding-left: 2.5em;
+  font-size: 0.95em;
+}
+
+#workskin .ending {
+  width: 90%;
+}
+
+#workskin .ending-title {
+  font-size: 1.3em;
+}
+
+</style>
+</head>
+<body>
+<div id="workskin">
+<div class="game">
+  <div class="warning">
+    <p>娱乐性质游戏，请勿上纲上线！</p>
+  </div>
+  <div class="page page-start">
+    <p><a id="p1" name="p1" class="anchor" rel="nofollow"></a></p>
+
+    <p>
+      身为游戏公司实习小职员的你〖金独子〗，有朝一日居然也撞了穿越大运，穿越进了之前反复观摩过的武侠小说《第一武林》之中！
+    </p>
+
+    <p>
+      逆天而行、传承正道、亦或者是坐拥美人，翻云覆雨的未来，尽由你的选择决定！
+    </p>
+
+    <p>你望着眼前直指云峰的山巅和山脚下挂着「破天剑宗」的牌子：</p>
+    <div class="choices">
+      <p>
+        <a href="#p2" rel="nofollow">
+          A. 不假思索地进入「破天剑宗」求娶破天剑姬
+        </a>
+      </p>
+
+      <p>
+        <a href="#p3" rel="nofollow">
+          B. 不假思索地踏进了「破天剑宗」……旁边的「白清门」
+        </a>
+      </p>
+
+      <p>
+        <a href="#p4" rel="nofollow">
+          C. 不假思索地大喊着「我是穿越者金独子我能掌控你们的命运」踏进武林
+        </a>
+      </p>
+
+      <p>
+        <a href="#p5" rel="nofollow">
+          D. 创立新的门派「灭活法」，宣称自己「灭活法」第一任主教〖刘众赫〗
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p2" name="p2" class="anchor" rel="nofollow"></a></p>
+
+    <p>
+      刚进「破天剑宗」说明来意，你就被剑姬的剑穿进了小腹！
+      还没有完成宏图霸业，就要死在这里了吗？！ 情急之下，你说出：
+    </p>
+    <div class="choices">
+      <p>
+        <a href="#endA" rel="nofollow"> A. 我推用剑好色情下辈子还来 </a>
+      </p>
+
+      <p>
+        <a href="#p6" rel="nofollow"> B. 我是先知，能预见你未来的命运 </a>
+      </p>
+
+      <p>
+        <a href="#endB" rel="nofollow">
+          C. 我是你未来的老公，杀了我你会变成寡妇
+        </a>
+      </p>
+
+      <p>
+        <a href="#p7" rel="nofollow"> D. 我是刘众赫 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p3" name="p3" class="anchor" rel="nofollow"></a></p>
+
+    <p>「白清门」掌门「逆说之白清」很喜欢你。</p>
+
+    <p>
+      但由于『外表』天资有限，你被长老们排挤进了外门。
+      拥有未来故事情节的你完全知道自己会被掌门欣赏，所以接下来你要做的事是：
+    </p>
+    <div class="choices">
+      <p>
+        <a href="#p8" rel="nofollow">
+          A. 勤奋练武，努力学习，天天向上，争取早日进入内门
+        </a>
+      </p>
+
+      <p>
+        <a href="#endB" rel="nofollow">
+          B. 我可是读者啊，什么学习？偷窥隔壁剑姬
+        </a>
+      </p>
+
+      <p>
+        <a href="#p9" rel="nofollow">
+          C. 三十年河东三十年河西，莫欺少年穷！叛出「白清门」
+        </a>
+      </p>
+
+      <p>
+        <a href="#p10" rel="nofollow"> D. 掌握剧情机遇，在后山挖宝 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p4" name="p4" class="anchor" rel="nofollow"></a></p>
+
+    <p>
+      第一武林的人还处于蒙昧无知的状态，完全不知道人生的本质就是「故事」。
+    </p>
+
+    <p>
+      作为先知的你准确预言了接下来的几件大事，被争相抢夺。 武林大会在即，你：
+    </p>
+    <div class="choices">
+      <p>
+        <a href="#endA" rel="nofollow">
+          A. 参加比赛，获得武林第一的头衔，前往「破天剑宗」，求娶〖刘众赫〗
+        </a>
+      </p>
+
+      <p>
+        <a href="#endB" rel="nofollow">
+          B.
+          不参加比赛，坐庄开盘，获取武林第一财神的头衔，前往「破天剑宗」，求娶〖刘众赫〗
+        </a>
+      </p>
+
+      <p>
+        <a href="#p11" rel="nofollow">
+          C. 参加比赛，获得武林第一的头衔，成为武林盟主，叱咤风云
+        </a>
+      </p>
+
+      <p>
+        <a href="#p12" rel="nofollow">
+          D. 不参加比赛，坐庄开盘，获取武林第一财神的头衔，挥斥方遒
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p5" name="p5" class="anchor" rel="nofollow"></a></p>
+
+    <p>
+      你被认为是「邪教」中人！ 〖刘众赫〗这个名字的威名在武林中蔓延，
+      魔王的不灭传说正在被传颂……
+    </p>
+
+    <p>你遭遇了围杀，你决定：</p>
+    <div class="choices">
+      <p>
+        <a href="#endC" rel="nofollow"> A. 滑跪道歉 </a>
+      </p>
+
+      <p>
+        <a href="#p13" rel="nofollow"> B. 当即逃跑 </a>
+      </p>
+
+      <p>
+        <a href="#p14" rel="nofollow"> C. 举例论证「灭活法门」并非邪教 </a>
+      </p>
+
+      <p>
+        <a href="#p15" rel="nofollow">
+          D. 〖刘众赫〗和我〖金独子〗有什么关系？
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p6" name="p6" class="anchor" rel="nofollow"></a></p>
+
+    <p>
+      剑姬的剑迟疑了。她因为你的话产生了动摇。
+      你趁热打铁，说出了剑姬爱吃的食物和曾经的故事。 你决定：
+    </p>
+    <div class="choices">
+      <p>
+        <a href="#p16" rel="nofollow"> A. 跟着剑姬回到「破天剑宗」 </a>
+      </p>
+
+      <p>
+        <a href="#endB" rel="nofollow"> B. 说出“剑姬能够从男变女”这一隐秘 </a>
+      </p>
+
+      <p>
+        <a href="#p17" rel="nofollow"> C. 作为先知跟随剑姬 </a>
+      </p>
+
+      <p>
+        <a href="#endB" rel="nofollow"> D. 利用身份向剑姬套取更多利益 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p7" name="p7" class="anchor" rel="nofollow"></a></p>
+
+    <p>
+      剑姬因你所说的话产生了极大的反应。 她的剑更加咄咄逼人地压在你的脖子上，
+      金黄的双眼锁住你的视线逼问你： “你到底是谁？”
+    </p>
+
+    <p>你回答：</p>
+    <div class="choices">
+      <p>
+        <a href="#endA" rel="nofollow"> A. 我就是你，你就是我 </a>
+      </p>
+
+      <p>
+        <a href="#p6" rel="nofollow"> B. 我是先知，我知道你的秘密 </a>
+      </p>
+
+      <p>
+        <a href="#endA" rel="nofollow"> C. 我是谁不重要，重要的是你是谁 </a>
+      </p>
+
+      <p>
+        <a href="#endB" rel="nofollow"> D. 我是你的爸爸 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p8" name="p8" class="anchor" rel="nofollow"></a></p>
+
+    <p>你遭遇了很多冷嘲热讽。</p>
+
+    <p>
+      但由于你已经是一个28岁仍然处男还未转正的游戏公司实习生，
+      这点嘲讽并不会打动你。
+    </p>
+
+    <p>你在勤勤恳恳修炼途中，获得了下山实习的机会。 你：</p>
+    <div class="choices">
+      <p>
+        <a href="#p15" rel="nofollow"> A. 把握这次机会，在实习途中大放异彩 </a>
+      </p>
+
+      <p>
+        <a href="#endE" rel="nofollow"> B. 留在门派内继续修炼 </a>
+      </p>
+
+      <p>
+        <a href="#p10" rel="nofollow">
+          C. 趁门内人数稀少，去见〖逆说之白清〗
+        </a>
+      </p>
+
+      <p>
+        <a href="#p18" rel="nofollow"> D. 邀请隔壁「破天剑宗」一同实习 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p9" name="p9" class="anchor" rel="nofollow"></a></p>
+
+    <p>为了能继续在第一武林中生存，你决定：</p>
+    <div class="choices">
+      <p>
+        <a href="#p19" rel="nofollow"> A. 宣称自己是〖刘众赫〗，奔走武林 </a>
+      </p>
+
+      <p>
+        <a href="#endE" rel="nofollow"> B. 宣称自己是〖刘众赫〗，拜入佛门 </a>
+      </p>
+
+      <p>
+        <a href="#p5" rel="nofollow">
+          C. 宣称自己是〖刘众赫〗，成立「灭活法」
+        </a>
+      </p>
+
+      <p>
+        <a href="#p15" rel="nofollow"> D. 用本名行走江湖 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p10" name="p10" class="anchor" rel="nofollow"></a></p>
+
+    <p>你获得了读者的专属BUG 〖全知读者视角〗及〖书签〗！</p>
+
+    <p>接下来，你：</p>
+    <div class="choices">
+      <p>
+        <a href="#p20" rel="nofollow">
+          A. 趁机盗取〖逆说之白清〗吉理奥斯的「白清罡气」
+        </a>
+      </p>
+
+      <p>
+        <a href="#p21" rel="nofollow">
+          B. 趁机盗取〖逆说之白清〗吉理奥斯的「电人化」
+        </a>
+      </p>
+
+      <p>
+        <a href="#p22" rel="nofollow">
+          C. 趁机盗取〖逆说之白清〗吉理奥斯的「小人化」
+        </a>
+      </p>
+
+      <p>
+        <a href="#p23" rel="nofollow">
+          D. 发动〖全知读者视角〗，观看「刘众赫」所处场景
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p11" name="p11" class="anchor" rel="nofollow"></a></p>
+
+    <p>你在最后一场比试上，遇见了一个特殊的对手。</p>
+
+    <p>
+      他头发微卷，容貌极为漂亮，身高184， 眉头微微蹙起，浑身散发着高手的气场，
+      正是当届人气选手〖刘众赫〗。
+    </p>
+
+    <p>你：</p>
+    <div class="choices">
+      <p>
+        <a href="#endG" rel="nofollow"> A. 诶…我打刘众赫？……要上吗？ </a>
+      </p>
+
+      <p>
+        <a href="#endF" rel="nofollow">
+          B. 赛前威胁他：我是先知，知道你的秘密
+        </a>
+      </p>
+
+      <p>
+        <a href="#endH" rel="nofollow"> C. 求签名 </a>
+      </p>
+
+      <p>
+        <a href="#endI" rel="nofollow"> D. 当场退赛 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p12" name="p12" class="anchor" rel="nofollow"></a></p>
+
+    <p>
+      你在台下，看见了人气选手〖刘众赫〗！
+      你立刻压下所有赌注压他能赢，果然赚了一大笔钱。
+    </p>
+
+    <p>赛后，你准备：</p>
+    <div class="choices">
+      <p>
+        <a href="#endF" rel="nofollow"> A. 去见刘众赫 </a>
+      </p>
+
+      <p>
+        <a href="#endJ" rel="nofollow"> B. 揣着千万coin溜之大吉 </a>
+      </p>
+
+      <p>
+        <a href="#p24" rel="nofollow"> C. 利用这笔钱建立宗门「灭活法」 </a>
+      </p>
+
+      <p>
+        <a href="#endB" rel="nofollow"> D. 前往「破天剑宗」求娶剑姬 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p13" name="p13" class="anchor" rel="nofollow"></a></p>
+
+    <p>跑路第一名的你成功从众人围猎下逃走。</p>
+
+    <p>
+      然而在你以为逃出生天的时候，
+      你突然被一名身高184、容貌漂亮得如同古希腊雕塑的男人劫持。
+    </p>
+
+    <p>他开始逼问你的身份，你应该说：</p>
+    <div class="choices">
+      <p>
+        <a href="#endK" rel="nofollow"> A. 我是〖刘众赫〗 </a>
+      </p>
+
+      <p>
+        <a href="#p25" rel="nofollow"> B. 我是〖金独子〗 </a>
+      </p>
+
+      <p>
+        <a href="#endF" rel="nofollow"> C. 我是〖刘众赫〗的直系亲属 </a>
+      </p>
+
+      <p>
+        <a href="#endF" rel="nofollow"> D. 我是〖刘众赫〗的朋友 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p14" name="p14" class="anchor" rel="nofollow"></a></p>
+
+    <p>你以三寸不烂之舌说服了围观群众！</p>
+
+    <p>
+      此刻，一名身高184、容貌漂亮得如同刀削的男人从人群中窜出， 直取你项上人头。
+    </p>
+
+    <p>面对这种情况，你应该说：</p>
+    <div class="choices">
+      <p>
+        <a href="#endK" rel="nofollow"> A. 护卫，拿下他 </a>
+      </p>
+
+      <p>
+        <a href="#endK" rel="nofollow"> B. 少侠饶命 </a>
+      </p>
+
+      <p>
+        <a href="#endK" rel="nofollow"> C. 我是〖刘众赫〗 </a>
+      </p>
+
+      <p>
+        <a href="#endG" rel="nofollow"> D. 不说话，比划比划 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p15" name="p15" class="anchor" rel="nofollow"></a></p>
+
+    <p>你隐姓埋名离开， 用金独子的身份在江湖上行侠仗义。</p>
+
+    <p>在旅途中，你遇见一个村庄正在被魔修无情地残害， 你决定：</p>
+    <div class="choices">
+      <p>
+        <a href="#p26" rel="nofollow"> A. 拯救村庄 </a>
+      </p>
+
+      <p>
+        <a href="#p27" rel="nofollow"> B. 路过 </a>
+      </p>
+
+      <p>
+        <a href="#p28" rel="nofollow"> C. 助纣为虐 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p16" name="p16" class="anchor" rel="nofollow"></a></p>
+
+    <p>
+      「破天剑宗」不收男性。 但由于先知的身份，破天剑圣和剑姬将你留了下来。
+      你决定接下来：
+    </p>
+    <div class="choices">
+      <p>
+        <a href="#endD" rel="nofollow"> A. 珍惜与剑姬青梅竹马两小无猜的时光 </a>
+      </p>
+
+      <p>
+        <a href="#endE" rel="nofollow"> B. 苦练武术，争取传承破天剑宗衣钵 </a>
+      </p>
+
+      <p>
+        <a href="#p17" rel="nofollow">
+          C. 利用先知的身份，指出剑姬的未来方向
+        </a>
+      </p>
+
+      <p>
+        <a href="#p22" rel="nofollow"> D. 偷学隔壁「白清门」武术 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p17" name="p17" class="anchor" rel="nofollow"></a></p>
+
+    <p>
+      作为先知的你对她的修行大有裨益。
+      剑姬决定出门参加武林大会，而你被破天剑圣一起连同剑姬打包送走，共赴武林盛会。
+    </p>
+
+    <p>在路上，你们遇见了一位求助的小孩，你决定：</p>
+    <div class="choices">
+      <p>
+        <a href="#p29" rel="nofollow"> A. 帮助 </a>
+      </p>
+
+      <p>
+        <a href="#p30" rel="nofollow"> B. 不帮助 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p18" name="p18" class="anchor" rel="nofollow"></a></p>
+
+    <p>你上门求助，破天剑圣思索一会儿， 让你与一位容貌极为漂亮的女子同行。</p>
+
+    <p>
+      你深知这是本书主角刘众赫。 她的脾气又差又倔，除此以外，运气还差得离谱，
+      以至于你们频频遇到危机。
+    </p>
+
+    <p>在路上，你们遇到一位小孩求助，你决定：</p>
+    <div class="choices">
+      <p>
+        <a href="#p29" rel="nofollow"> A. 帮助 </a>
+      </p>
+
+      <p>
+        <a href="#p30" rel="nofollow"> B. 不帮助 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p19" name="p19" class="anchor" rel="nofollow"></a></p>
+
+    <p>你用〖刘众赫〗的名义在武林中行侠仗义。</p>
+
+    <p>「最丑之王」刘众赫的传说在武林中蔓延……</p>
+
+    <p>在某次行侠过程中，你路遇一个求助的小孩，你决定：</p>
+    <div class="choices">
+      <p>
+        <a href="#endL" rel="nofollow"> A. 帮助 </a>
+      </p>
+
+      <p>
+        <a href="#endK" rel="nofollow"> B. 不帮助 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p20" name="p20" class="anchor" rel="nofollow"></a></p>
+
+    <p>你在宗门大比中和吉理奥斯展示了「白清罡气」。</p>
+
+    <p>吉理奥斯将你视为关门弟子， 决定将「白清门」的未来托付在你手上。</p>
+
+    <p>武林大会在即，你决定：</p>
+    <div class="choices">
+      <p>
+        <a href="#endM" rel="nofollow"> A. 参加 </a>
+      </p>
+
+      <p>
+        <a href="#endN" rel="nofollow"> B. 不参加，管理好「白清门」 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p21" name="p21" class="anchor" rel="nofollow"></a></p>
+
+    <p>你在宗门大比中和吉理奥斯展示了「电人化」。</p>
+
+    <p>吉理奥斯认为你有参加武林大会的资本。 你前往武林大会。 你决定：</p>
+    <div class="choices">
+      <p>
+        <a href="#p26" rel="nofollow"> A. 离大会时间还早，沿途一路过去 </a>
+      </p>
+
+      <p>
+        <a href="#endM" rel="nofollow"> B. 直接快马加鞭赶到 </a>
+      </p>
+
+      <p>
+        <a href="#p18" rel="nofollow"> C. 邀请隔壁「破天剑宗」一同前往 </a>
+      </p>
+
+      <p>
+        <a href="#endE" rel="nofollow"> D. 不参加 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p22" name="p22" class="anchor" rel="nofollow"></a></p>
+
+    <p>你拥有了强劲的实力！ 听说武林大会在即，你决定：</p>
+    <div class="choices">
+      <p>
+        <a href="#p15" rel="nofollow"> A. 参加 </a>
+      </p>
+
+      <p>
+        <a href="#endE" rel="nofollow"> B. 不参加 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p23" name="p23" class="anchor" rel="nofollow"></a></p>
+
+    <p>你看见「刘众赫」正在前往参加武林大会的路上。 他目前正在救助一名孩童。</p>
+
+    <p>如果你快马加鞭，必然能与他一起参加武林大会。 是否参加？</p>
+    <div class="choices">
+      <p>
+        <a href="#endO" rel="nofollow"> A. 是 </a>
+      </p>
+
+      <p>
+        <a href="#endE" rel="nofollow"> B. 否 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p24" name="p24" class="anchor" rel="nofollow"></a></p>
+
+    <p>你以『金独子』的名义建立了「灭活法」。</p>
+
+    <p>沧海桑田，日月如梭， 「灭活法」也成为了独当一面的大门派。</p>
+
+    <p>魔教现世，作为第一主教的你：</p>
+    <div class="choices">
+      <p>
+        <a href="#endN" rel="nofollow"> A. 围剿魔教 </a>
+      </p>
+
+      <p>
+        <a href="#p31" rel="nofollow"> B. 作壁上观 </a>
+      </p>
+
+      <p>
+        <a href="#endP" rel="nofollow"> C. 加入魔教 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p25" name="p25" class="anchor" rel="nofollow"></a></p>
+
+    <p>『刘众赫』逼问你为什么要改名换姓。 你：</p>
+    <div class="choices">
+      <p>
+        <a href="#endF" rel="nofollow">
+          A. 我从小定下的娃娃亲是一个叫「刘众赫」的女孩
+        </a>
+      </p>
+
+      <p>
+        <a href="#endO" rel="nofollow"> B. 行走江湖，巧合 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p26" name="p26" class="anchor" rel="nofollow"></a></p>
+
+    <p>『武林侠士金独子』的传说正在讲述！</p>
+
+    <p>你九死一生在魔教的手下救下村庄， 并且遇见了前来救援的主角『刘众赫』。</p>
+
+    <p>你们遇见了一名求助的孩童，你决定：</p>
+    <div class="choices">
+      <p>
+        <a href="#p32" rel="nofollow"> A. 帮助 </a>
+      </p>
+
+      <p>
+        <a href="#p33" rel="nofollow"> B. 不帮助 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p27" name="p27" class="anchor" rel="nofollow"></a></p>
+
+    <p>在路上，你遇见了一名向你求助的小孩，你决定：</p>
+    <div class="choices">
+      <p>
+        <a href="#endL" rel="nofollow"> A. 帮助 </a>
+      </p>
+
+      <p>
+        <a href="#endE" rel="nofollow"> B. 不帮助 </a>
+      </p>
+
+      <p>
+        <a href="#endS" rel="nofollow"> C. 杀害 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p28" name="p28" class="anchor" rel="nofollow"></a></p>
+
+    <p>『残忍之人金独子』的传说正在讲述！</p>
+
+    <p>你被疯狂通缉，故事走向了未知的趋势。</p>
+
+    <p>在血洗村庄后的路上，你遇见了一名向你求助的小孩，你决定：</p>
+    <div class="choices">
+      <p>
+        <a href="#endS" rel="nofollow"> A. 帮助 </a>
+      </p>
+
+      <p>
+        <a href="#p34" rel="nofollow"> B. 杀害 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p29" name="p29" class="anchor" rel="nofollow"></a></p>
+
+    <p>你与剑姬继续上路。</p>
+
+    <p>经过长途跋涉，你们终于来到武林大会赛场。</p>
+
+    <p>作为先知的你知道这本书的最终boss是魔修， 你是否要提醒剑姬？</p>
+    <div class="choices">
+      <p>
+        <a href="#endT" rel="nofollow"> A. 提醒 </a>
+      </p>
+
+      <p>
+        <a href="#endU" rel="nofollow"> B. 不提醒 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p30" name="p30" class="anchor" rel="nofollow"></a></p>
+
+    <p>你们离开了。</p>
+
+    <p>经过长途跋涉，你们终于来到武林大会赛场。</p>
+
+    <p>作为先知的你知道这本书的最终boss是魔修， 你是否要提醒你的同伴？</p>
+    <div class="choices">
+      <p>
+        <a href="#endV" rel="nofollow"> A. 提醒 </a>
+      </p>
+
+      <p>
+        <a href="#endW" rel="nofollow"> B. 不提醒 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p31" name="p31" class="anchor" rel="nofollow"></a></p>
+
+    <p>你在针对魔修的围剿中保存了实力。</p>
+
+    <p>「灭活法」迅速崛起。</p>
+
+    <p>但同时，由于你当初并未出力， 在正道面前落下了话柄。</p>
+
+    <p>主角『刘众赫』异军突起，很快成为了武林的神话。</p>
+
+    <p>你邀请他来到「灭活法」一叙，他答应了。 你会用：</p>
+    <div class="choices">
+      <p>
+        <a href="#endF" rel="nofollow"> A. 刘众赫的男女同体作为话题 </a>
+      </p>
+
+      <p>
+        <a href="#endN" rel="nofollow"> B. 武林正道作为话题 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p32" name="p32" class="anchor" rel="nofollow"></a></p>
+
+    <p>『武林侠士金独子』的传说正在讲述！</p>
+
+    <p>你帮助了孩童。</p>
+
+    <p>你与刘众赫在相处过程中愈发亲密。</p>
+
+    <p>这个乖戾的主角，在某次行侠仗义中甚至主动将脑袋搁在你肩膀上打瞌睡。</p>
+
+    <p>接下来是武林大会，你决定：</p>
+    <div class="choices">
+      <p>
+        <a href="#p33" rel="nofollow"> A. 参加 </a>
+      </p>
+
+      <p>
+        <a href="#p34" rel="nofollow"> B. 不参加 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p33" name="p33" class="anchor" rel="nofollow"></a></p>
+
+    <p>『武林侠士金独子』的传说正在讲述！</p>
+
+    <p>你与刘众赫一同参加了武林大会。</p>
+
+    <p>在武林大会上，由于你的名声赫赫， 无数英雄与你相交。</p>
+
+    <p>最后一场大比是你与刘众赫的战斗。</p>
+
+    <p>魔教来袭，你：</p>
+    <div class="choices">
+      <p>
+        <a href="#endQ" rel="nofollow"> A. 挺身而出 </a>
+      </p>
+
+      <p>
+        <a href="#endR" rel="nofollow"> B. 谨慎而行 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="p34" name="p34" class="anchor" rel="nofollow"></a></p>
+
+    <p>『残忍之人金独子』的传说正在讲述！</p>
+
+    <p>
+      在武林大会中， 你以一己之力杀害了大半武林侠士，
+      更抓住了『破天剑宗』门下的剑姬刘众赫。
+    </p>
+
+    <p>对于你曾经喜爱的小说主角，你决定：</p>
+    <div class="choices">
+      <p>
+        <a href="#endX" rel="nofollow"> A. 放了她 </a>
+      </p>
+
+      <p>
+        <a href="#endY" rel="nofollow"> B. 弓虽女干她 </a>
+      </p>
+
+      <p>
+        <a href="#endZ" rel="nofollow"> C. 杀了她 </a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endA" name="endA" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END A</p>
+      </div>
+
+      <p>
+        你死了！死在了剑姬的剑下。
+        在临死前看见了剑姬的脸，漂亮的狭长双眼和薄削的嘴唇，
+        下颌线如刀削般锋利，微卷长发，带着嫌恶的表情。 GAME OVER，请下辈子再会。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endB" name="endB" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END B</p>
+      </div>
+
+      <p>
+        你死了！ 你被剑姬分尸了！ 她把你扔进了乱葬岗，连脸都没有看见的机会。
+        做人是否应该更加谨慎？ GAME OVER，请下辈子再会。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endC" name="endC" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END C</p>
+      </div>
+
+      <p>
+        你死了！ 你被武林中人围杀了。 你的道歉没有任何作用，
+        或许骨气应该更硬一些？ GAME OVER，请下辈子再会。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endD" name="endD" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END D</p>
+      </div>
+
+      <p>
+        达成结局《青梅竹马》： 你与剑姬度过了两小无猜的甜蜜时光。
+        她的脾气很臭，除了脸漂亮以外简直是硝烟四起。
+        你寿命将至合眼时，她坐在你的床边盯着你， 送你走过最后一程。
+        此生是否算是不留遗憾？你不得而知。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endE" name="endE" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END E</p>
+      </div>
+
+      <p>
+        你死了！ 你天赋有限，无法突破自我。 即使知道剧情也无可奈何的感觉，
+        就像是写不出来试卷最后一道大题一样无能为力。
+        最终，你因凡人寿命短暂老死他乡。 GAME OVER，请下辈子再会。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endF" name="endF" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END F</p>
+      </div>
+
+      <p>
+        你死了！ 刘众赫完全没有听你在说什么， 直接将你杀掉了。
+        胡乱说话会被主角制裁， 这是你死亡前脑海中的残留想法。
+        是否应该选择另外一条路与主角相处？ GAME OVER，请下辈子再会。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endG" name="endG" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END G</p>
+      </div>
+
+      <p>
+        达成结局《主角背后的透明人》： 你在比试中输给了『刘众赫』。
+        但他对你产生了浓厚的兴趣。 你们决定相邀闯荡江湖，
+        在一次历练中，你们不慎落入了魔修的法网。 作为先知的你没有能力摆脱魔修，
+        最终还是作为『刘众赫』的朋友死去。
+        你是否给武林带来了新的传说？你不得而知。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endH" name="endH" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END H</p>
+      </div>
+
+      <p>
+        达成结局《安稳度日的先知》： 你在比试中拿出纸笔求『刘众赫』的签名。
+        武林大会结束，刘众赫也来无影去无踪。
+        你由于先知的身份获得了优待，安享晚年。
+        但是否能有更精彩的结局？你不得而知。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endI" name="endI" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END I</p>
+      </div>
+
+      <p>
+        达成结局《默默无闻的普通人》： 你在比试中退赛，成为了天下武林人的耻辱。
+        没人知道你面对传说中气势汹汹的主角刘众赫时有多大的压力，
+        最终你改名换姓退隐山林。 后来你想起曾经的时光，
+        拥有金手指的你却获得了这样的结局， 你是否甘心？没人知道。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endJ" name="endJ" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END J</p>
+      </div>
+
+      <p>
+        达成结局《富甲一方的先知》： 你用那笔钱成为了富可敌国的贵人。
+        吃喝玩乐享之不尽用之不竭， 你先知的名号传遍四方，
+        更多的人愿意追随你的脚步， 成为你的附庸。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endK" name="endK" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END K</p>
+      </div>
+
+      <p>
+        你死了！ 刘众赫刚下山历练， 别人听见他的名字就闻风丧胆地跑了。
+        他多方面打听， 终于听见有人用他的名字为非作歹。
+        他怀恨已久，你被一剑封喉！ GAME OVER，请下辈子再会。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endL" name="endL" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END L</p>
+      </div>
+
+      <p>
+        达成结局《虚伪的最丑之王》： 你帮助了小孩。
+        武林大会在即，你与真正的刘众赫在武台上相见！ 他打败了你。
+        但由于你为刘众赫留下的善名及「最丑之王」的传说， 他给你留了一命。
+        从此以后，你归隐山林，不再踏入武林。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endM" name="endM" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END M</p>
+      </div>
+
+      <p>
+        达成结局《武林世界的第一》： 你获得了武林大会的冠军，
+        光荣地完成了在第一武林的最高成就。
+        除此以外，你还获得了师父吉理奥斯的青睐，
+        这是在原来世界的你从来未曾获得过的关怀。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endN" name="endN" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END N</p>
+      </div>
+
+      <p>
+        达成结局《武林世家之巅峰》： 你将门派在你手中发扬光大，
+        追随你的人千千万万，一呼百应。 无人不知你的名号， 无人不晓你的威能。
+        你成为了第一武林中的传奇。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endO" name="endO" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END O</p>
+      </div>
+
+      <p>
+        达成结局《最好的同伴》： 刘众赫对你感到莫名其妙。 他并不认识你，
+        但由于你展露出来高超的配合水平， 他同意了你成为他的同伴。
+        你们一同参与了武林大会， 最终叱咤江湖。 你成为了刘众赫不可或缺的同伴。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endP" name="endP" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END P</p>
+      </div>
+
+      <p>
+        达成结局《魔教之人》： 「灭活法」成为了魔教！ 在正道对你的讨伐中，
+        你们有来有回， 更加凸显了魔教的实力。 最终，在主角『刘众赫』的带领下，
+        魔教全灭。 你遗臭万年，可止小儿夜啼。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endQ" name="endQ" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END Q</p>
+      </div>
+
+      <p>
+        达成结局《江湖路远》： 你一路走来，仗义行侠， 与刘众赫结成了伴侣。
+        魔教之乱之后， 你失去了双手， 与刘众赫隐居山林， 成为神仙眷侣。
+      </p>
+
+      <p>
+        他向你坦诚了剑姬的身份， 并常常用剑姬与你相处。
+        以至于『侠士金独子』其实有一夫一妻的传闻， 在江湖中经久不衰……
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endR" name="endR" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END R</p>
+      </div>
+
+      <p>
+        达成结局《末世之星》： 魔教攻下正道的根据地， 一夜之间，江湖鸡犬不宁。
+      </p>
+
+      <p>
+        你与刘众赫虽然在那场武林大会中全身而退， 然而正道中人伤残严重，
+        武林再也回不到曾经的其乐融融。
+      </p>
+
+      <p>
+        你和刘众赫结为伴侣， 以剑姬与侠士独子的身份匡扶正道，
+        成为魔教害世的最后一根稻草。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endS" name="endS" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END S</p>
+      </div>
+
+      <p>你死了！ 你被追杀， 迫不得已加入了魔教。</p>
+
+      <p>在魔教对世人发起的总攻中， 你被正道的希望之星『刘众赫』一击毙命。</p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endT" name="endT" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END T</p>
+      </div>
+
+      <p>
+        达成结局《读者》： 你与剑姬相识相知良久，
+        她成功在武林大会上夺得了第一名， 并将魔教的种子掐灭在了摇篮中。
+      </p>
+
+      <p>
+        你看着主角在你的帮助下成为武林第一， 叱咤风云， 而你只是在阅读他的故事，
+        成为她的一部分。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endU" name="endU" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END U</p>
+      </div>
+
+      <p>
+        达成结局《亏心者》： 你没有提醒剑姬可能发生的事情，
+        并且在魔教来袭中成功地英雄救美。
+      </p>
+
+      <p>
+        她并非完全的女人， 她在与魔教的争斗中双腿不能再直立行走，
+        是你悉心照料她， 因此你俩互生情愫。
+      </p>
+
+      <p>
+        她对你的离开很敏感， 无时无刻不需要你在她的身边。
+        你感到满足，同时隐隐不安……
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endV" name="endV" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END V</p>
+      </div>
+
+      <p>
+        达成结局《透明人》： 刘众赫成为了武林第一， 并惩戒了魔教，
+        而你在此江湖中只是一个稍有名气的少侠。
+      </p>
+
+      <p>活成前世的模样有些悲剧， 或许这才是你最舒适的人生。</p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endW" name="endW" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END W</p>
+      </div>
+
+      <p>达成结局《尸横遍野》： 由于你未提醒， 刘众赫和你都死于魔教。</p>
+
+      <p>魔教屠戮近万人， 你与最爱的主角刘众赫埋在了一起， 永远紧紧相依。</p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endX" name="endX" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END X</p>
+      </div>
+
+      <p>达成结局《宿敌》： 刘众赫不明白你为什么要把她放走。</p>
+
+      <p>在接下来的几十年中， 你成为了众人提之色变之人， 让魔教风生水起。</p>
+
+      <p>
+        同时， 刘众赫也追杀了你几十年。 无论何时， 只要有你的身影，
+        刘众赫如影随形。
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endY" name="endY" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END Y</p>
+      </div>
+
+      <p>
+        达成结局《零》： 你突然从1㎡的公寓小床上醒来， 回忆自己在梦里的遭遇。
+      </p>
+
+      <p>
+        手机上显示的文字正是你最喜欢的小说「灭活法」， 作者公告上面写着：
+        《灭活法》完结了，感谢大家的支持~
+      </p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+  <div class="page">
+    <p><a id="endZ" name="endZ" class="anchor" rel="nofollow"></a></p>
+    <div class="ending">
+      <div class="ending-title">
+        <p>END Z</p>
+      </div>
+
+      <p>达成结局《疯魔》： 你已经忘了《灭活法》是你曾经最爱的小说！</p>
+
+      <p>你亲手杀死了你最爱的主角， 他的身体如同纸张一样在你手上腐朽。</p>
+
+      <p>你成为了罪恶滔天的魔头， 魔王的名号当之无愧。</p>
+    </div>
+    <div class="choices">
+      <p>
+        <a href="#p1" rel="nofollow">↻ 重新开始</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
